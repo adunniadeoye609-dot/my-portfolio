@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oluwaseyifunmi Esther Adeoye | Executive Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a1628;
+      --deep: #0d1f3c;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --cream: #f5f1eb;
+      --white: #ffffff;
+      --gray: #8a9bb0;
+      --light-gray: #e8ecf2;
+      --text: #2c3e50;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 22, 40, 0.97);
+      backdrop-filter: blur(12px);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex; align-items: center;
+      padding: 68px 5% 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 55%; height: 100%;
+      background: linear-gradient(135deg, rgba(201,168,76,0.06) 0%, rgba(13,31,60,0.4) 100%);
+      clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 20%; right: 8%;
+      width: 320px; height: 320px;
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 50%;
+      animation: pulse 6s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 680px;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 6px 16px;
+      margin-bottom: 2rem;
+      animation: fadeUp 1s 0.1s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1rem;
+      animation: fadeUp 1s 0.2s ease both;
+    }
+
+    .hero h1 span { color: var(--gold); font-style: italic; }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+
+    .hero-cta {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeUp 1s 0.4s ease both;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      padding: 14px 32px;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-family: 'DM Sans', sans-serif;
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: rgba(255,255,255,0.8);
+      padding: 14px 32px;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 400;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: all 0.3s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-stats {
+      position: absolute; bottom: 60px; right: 8%;
+      display: flex; gap: 3rem;
+      z-index: 2;
+      animation: fadeUp 1s 0.6s ease both;
+    }
+
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* SECTIONS COMMON */
+    section { padding: 100px 5%; }
+
+    .section-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    .divider {
+      width: 60px; height: 2px;
+      background: var(--gold);
+      margin-bottom: 3rem;
+    }
+
+    /* ABOUT */
+    .about { background: var(--white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-text p {
+      color: #4a5568;
+      line-height: 1.9;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .about-highlights {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .highlight-item {
+      padding: 1.5rem;
+      border-left: 3px solid var(--gold);
+      background: var(--cream);
+    }
+
+    .highlight-item h4 {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.4rem;
+    }
+
+    .highlight-item p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-card {
+      background: var(--navy);
+      padding: 3rem;
+      position: relative;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: -12px; right: 12px; bottom: 12px;
+      border: 2px solid rgba(201,168,76,0.3);
+      pointer-events: none;
+    }
+
+    .about-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .skill-row {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-name {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.05em;
+      min-width: 160px;
+    }
+
+    .skill-bar {
+      flex: 1;
+      height: 2px;
+      background: rgba(255,255,255,0.1);
+      position: relative;
+    }
+
+    .skill-fill {
+      position: absolute; top: 0; left: 0; height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transition: width 1.5s ease;
+    }
+
+    /* EXPERIENCE */
+    .experience { background: var(--cream); }
+    .experience-inner { max-width: 900px; margin: 0 auto; }
+
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3.5rem;
+      padding-left: 2.5rem;
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: slideIn 0.6s ease forwards;
+    }
+
+    .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.25s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes slideIn {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -2.15rem;
+      top: 6px;
+      width: 12px; height: 12px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(201,168,76,0.15);
+    }
+
+    .timeline-date {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--navy);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-company {
+      font-size: 0.82rem;
+      color: var(--gray);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: #4a5568;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .timeline-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 4px 12px;
+    }
+
+    /* SERVICES */
+    .services { background: var(--navy); }
+    .services .section-title { color: var(--white); }
+    .services .section-tag { color: var(--gold); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5px;
+      margin-top: 3rem;
+      background: rgba(201,168,76,0.1);
+    }
+
+    .service-card {
+      background: var(--deep);
+      padding: 2.5rem;
+      transition: background 0.3s;
+      cursor: default;
+    }
+
+    .service-card:hover { background: rgba(201,168,76,0.06); }
+
+    .service-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .service-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* PORTFOLIO */
+    .portfolio { background: var(--white); }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .portfolio-item {
+      border: 1px solid var(--light-gray);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(10,22,40,0.1);
+    }
+
+    .portfolio-header {
+      background: var(--navy);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-header::after {
+      content: attr(data-num);
+      position: absolute;
+      right: 1.5rem; bottom: -0.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 600;
+      color: rgba(201,168,76,0.1);
+      line-height: 1;
+    }
+
+    .portfolio-cat {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .portfolio-body {
+      padding: 1.8rem;
+    }
+
+    .portfolio-body p {
+      font-size: 0.875rem;
+      color: #5a6a7e;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* CONTACT */
+    .contact { background: var(--cream); }
+    .contact-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-icon {
+      width: 40px; height: 40px;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-detail h4 {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-detail p {
+      font-size: 0.9rem;
+      color: var(--navy);
+    }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid var(--light-gray);
+      background: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.3s;
+      resize: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+
+    .form-group textarea { height: 130px; }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      padding: 3rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.05em;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-stats { position: relative; bottom: auto; right: auto; margin-top: 3rem; }
+      .hero { flex-direction: column; justify-content: center; padding-top: 100px; }
+      nav .nav-links { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">O. Esther Adeoye</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-tag">Executive Assistant · Remote & Hybrid Ready</div>
+      <h1>Oluwaseyifunmi<br><span>Esther Adeoye</span></h1>
+      <p class="hero-sub">
+        Results-driven Executive Assistant with 2+ years of progressive experience supporting senior leadership across government, international business, and consulting environments — certified in Project Management (PMI) and Human Resources (PHRi).
+      </p>
+      <div class="hero-cta">
+        <a href="#portfolio" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-outline">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Organizations</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Remote Ready</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="section-tag">About Me</span>
+        <h2 class="section-title">The Executive's <em>Strategic Partner</em></h2>
+        <div class="divider"></div>
+        <p>
+          I am a results-driven Executive Assistant with 2+ years of progressive administrative experience supporting senior leadership across government, international business, and consulting environments. My expertise spans executive calendar management, high-volume correspondence, stakeholder coordination, and confidential information handling.
+        </p>
+        <p>
+          I am certified in Project Management (PMI) and Human Resources (PHRi), and I'm proficient in Google Workspace, Microsoft Office Suite, Asana, and Trello. I thrive in remote and hybrid settings, managing competing priorities under tight deadlines while maintaining the highest professional standards.
+        </p>
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <h4>Certifications</h4>
+            <p>PMI · PHRi · ALX VA</p>
+          </div>
+          <div class="highlight-item">
+            <h4>Location</h4>
+            <p>Lagos, Nigeria · Remote Ready</p>
+          </div>
+          <div class="highlight-item">
+            <h4>Education</h4>
+            <p>B.Ed, Tai Solarin University</p>
+          </div>
+          <div class="highlight-item">
+            <h4>Tools</h4>
+            <p>Google Workspace · Asana · Trello</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-visual">
+        <div class="about-card">
+          <div class="about-card-title">Core Competencies</div>
+          <div class="skill-row">
+            <span class="skill-name">Executive Scheduling</span>
+            <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Cross-dept. Liaison</span>
+            <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Travel Coordination</span>
+            <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Event Planning</span>
+            <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Project Management</span>
+            <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Correspondence</span>
+            <div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="experience" id="experience">
+    <div class="experience-inner">
+      <span class="section-tag">Work History</span>
+      <h2 class="section-title">Professional <em>Experience</em></h2>
+      <div class="divider"></div>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Aug 2025 – Dec 2025 · Remote · USA</div>
+          <div class="timeline-role">Executive Administrative Assistant</div>
+          <div class="timeline-company">Frasers Mathematics Solutions (FMS) — New Jersey, USA</div>
+          <p class="timeline-desc">
+            Provided comprehensive administrative support to senior leadership, managing all internal and external correspondence across multiple communication channels. Coordinated account requests, order tracking, and cross-departmental follow-ups — maintaining 100% accuracy in documentation. Developed structured workflow logs and digital records for a remote-first operations team, improving process consistency and information retrieval.
+          </p>
+          <div class="timeline-tags">
+            <span class="tag">Remote Operations</span>
+            <span class="tag">Correspondence</span>
+            <span class="tag">Workflow Management</span>
+            <span class="tag">Cross-dept Coordination</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Nov 2024 – Dec 2024 · Lagos, Nigeria</div>
+          <div class="timeline-role">Administrative & Client Relations Coordinator</div>
+          <div class="timeline-company">SEAS Limited — Lagos, Nigeria</div>
+          <p class="timeline-desc">
+            Served as the primary administrative contact for a diverse client portfolio of 20+ partners, providing professional, solutions-focused responses to all inquiries and escalations. Processed and maintained account documentation and operational records with strict attention to accuracy and confidentiality. Coordinated follow-ups and action items across multiple internal teams, achieving a 100% on-time task completion rate.
+          </p>
+          <div class="timeline-tags">
+            <span class="tag">Client Relations</span>
+            <span class="tag">Documentation</span>
+            <span class="tag">100% On-time Delivery</span>
+            <span class="tag">Confidentiality</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Nov 2023 – Oct 2024 · Government</div>
+          <div class="timeline-role">Executive Administrative Assistant</div>
+          <div class="timeline-company">Ogun State House of Assembly</div>
+          <p class="timeline-desc">
+            Provided direct executive support to senior officials in a high-profile government environment, managing complex scheduling, high-volume correspondence, and sensitive documentation with full confidentiality. Coordinated internal and external communications on behalf of leadership, and maintained structured digital and physical filing systems — reducing document retrieval time and supporting legislative operations throughout a 12-month engagement.
+          </p>
+          <div class="timeline-tags">
+            <span class="tag">Government Admin</span>
+            <span class="tag">Confidential Documents</span>
+            <span class="tag">Legislative Scheduling</span>
+            <span class="tag">Filing Systems</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <span class="section-tag">What I Offer</span>
+    <h2 class="section-title">Services & <em>Capabilities</em></h2>
+    <div class="divider" style="background:var(--gold)"></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">📅</span>
+        <div class="service-title">Calendar & Schedule Management</div>
+        <p class="service-desc">Complex multi-timezone scheduling, priority triage, and conflict resolution for busy executives. I ensure your time is protected and purposeful.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">✉️</span>
+        <div class="service-title">Communication & Correspondence</div>
+        <p class="service-desc">Drafting executive emails, managing inboxes, preparing briefings and reports — ensuring every communication reflects your voice with precision.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">✈️</span>
+        <div class="service-title">Travel Coordination</div>
+        <p class="service-desc">End-to-end travel logistics including flights, accommodation, ground transport, and detailed itineraries — zero disruption to executive workflow.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎯</span>
+        <div class="service-title">Project & Task Management</div>
+        <p class="service-desc">Tracking deliverables, following up with stakeholders, and keeping projects on schedule — so nothing falls through the cracks.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎪</span>
+        <div class="service-title">Event Planning & Coordination</div>
+        <p class="service-desc">From internal offsites to formal executive events — venue sourcing, vendor management, logistics, and on-the-day coordination handled seamlessly.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔗</span>
+        <div class="service-title">Cross-Department Liaison</div>
+        <p class="service-desc">Bridging Sales, Finance, Curriculum, and Operations — I ensure departments stay aligned, informed, and moving toward shared goals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="portfolio" id="portfolio">
+    <span class="section-tag">Work Samples</span>
+    <h2 class="section-title">Portfolio <em>Highlights</em></h2>
+    <div class="divider"></div>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item">
+        <div class="portfolio-header" data-num="01">
+          <div class="portfolio-cat">Remote · USA · Operations</div>
+          <div class="portfolio-title">Remote Workflow & Records System</div>
+        </div>
+        <div class="portfolio-body">
+          <p>At FMS (New Jersey, USA), built and maintained structured workflow logs and digital records for a remote-first operations team — improving process consistency, information retrieval speed, and cross-team accountability across multiple communication channels.</p>
+          <div class="timeline-tags" style="margin-top:1rem">
+            <span class="tag">Remote Ops</span><span class="tag">Digital Records</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <div class="portfolio-header" data-num="02">
+          <div class="portfolio-cat">Government · Scheduling & Compliance</div>
+          <div class="portfolio-title">Legislative Executive Support</div>
+        </div>
+        <div class="portfolio-body">
+          <p>Delivered a full 12-month executive support engagement at Ogun State House of Assembly — managing complex scheduling, sensitive government correspondence, and structured filing systems in a compliance-driven environment with full confidentiality.</p>
+          <div class="timeline-tags" style="margin-top:1rem">
+            <span class="tag">Government</span><span class="tag">Scheduling</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <div class="portfolio-header" data-num="03">
+          <div class="portfolio-cat">Corporate · Client Relations</div>
+          <div class="portfolio-title">20+ Client Portfolio Management</div>
+        </div>
+        <div class="portfolio-body">
+          <p>At SEAS Limited, managed administrative and client relations for a portfolio of 20+ partners — achieving a 100% on-time task completion rate while coordinating across multiple internal teams and maintaining strict documentation accuracy and confidentiality.</p>
+          <div class="timeline-tags" style="margin-top:1rem">
+            <span class="tag">Client Relations</span><span class="tag">100% On-time</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title">Let's <em>Work Together</em></h2>
+      <div class="divider"></div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Open to Remote Opportunities</h3>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-detail">
+              <h4>Location</h4>
+              <p>Lagos, Nigeria · Available Globally</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-detail">
+              <h4>Email</h4>
+              <p>adunniadeoye609@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-detail">
+              <h4>Phone</h4>
+              <p>09068234543</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">💼</div>
+            <div class="contact-detail">
+              <h4>Work Type</h4>
+              <p>Full-time · Part-time · Contract</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" />
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Email" />
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Tell me about the opportunity..."></textarea>
+          </div>
+          <button class="btn-primary" style="align-self:flex-start">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">O. Esther Adeoye</div>
+    <div class="footer-copy">© 2025 · Executive Assistant · All Rights Reserved</div>
+  </footer>
+
+</body>
+</html>
